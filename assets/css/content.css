@@ -1,0 +1,80 @@
+.visitors {
+    background-image: url(../img/miniaturas/sin-texto/visitors.jpeg);
+    background-size: cover;
+}
+
+.thecity {
+    background-image: url(../img/miniaturas/sin-texto/the-city.jpeg);
+    background-size: cover;
+}
+
+.panaderia {
+    background-image: url(../img/miniaturas/sin-texto/panaderia-solis.jpeg);
+    background-size: cover;
+}
+
+.chircal {
+    background-image: url(../img/miniaturas/sin-texto/chircal.jpeg);
+    background-size: cover;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    left: 150px;
+    bottom: 150px;
+    margin: auto;
+    position: absolute;
+}
+
+.text h1 {
+    font-size: 8em;
+}
+
+.text h2 {
+    font-size: 4em;
+}
+
+.text h1,
+.text h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+@media (max-width: 550px) {
+    /* CONTENT */
+    .visitors {
+        background-image: url(../img/miniaturas/mobile/visitors.jpeg);
+        background-size: cover;
+    }
+    .thecity {
+        background-image: url(../img/miniaturas/mobile/the-city.jpeg);
+        background-size: cover;
+    }
+    .panaderia {
+        background-image: url(../img/miniaturas/mobile/panaderia-solis.jpeg);
+        background-size: cover;
+    }
+    .chircal {
+        background-image: url(../img/miniaturas/mobile/chircal.jpeg);
+        background-size: cover;
+    }
+    /* TEXT */
+    .text {
+        left: 25px;
+        bottom: 150px;
+    }
+    .text h1 {
+        font-size: 6em;
+    }
+    .text h2 {
+        font-size: 3em;
+    }
+    .text h1,
+    .text h2 {
+        margin: 0;
+    }
+}

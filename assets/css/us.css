@@ -176,8 +176,7 @@ textarea {
 
 /* RESPONSIVE */
 
-@media(max-width: 768px) {
-    /* TITLE */
+@media(max-width: 1000px) {
     h1 {
         text-align: center;
         margin: 15vh 0 0 0;
@@ -198,6 +197,18 @@ textarea {
     }
 }
 
+@media(max-width: 768px) {
+    /* CONTACT */
+    .contact__form {
+        width: 90%;
+    }
+    .contact a h3 {
+        text-align: center;
+        width: 90%;
+        margin: auto;
+    }
+}
+
 @media(max-width: 450px) {
     /* TEAM */
     .team {
@@ -211,17 +222,5 @@ textarea {
     .team__contain img {
         width: 60%;
         margin: 0 auto;
-    }
-}
-
-@media(max-width: 768px) {
-    /* CONTACT */
-    .contact__form {
-        width: 90%;
-    }
-    .contact a h3 {
-        text-align: center;
-        width: 90%;
-        margin: auto;
     }
 }

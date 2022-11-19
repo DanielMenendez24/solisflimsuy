@@ -5,7 +5,7 @@ footer {
     position: fixed;
     bottom: 0;
     padding: 0 5%;
-    width: 100%;
+    width: 90%;
     height: 50px;
     background-color: #232323;
     z-index: 9999;
@@ -36,12 +36,22 @@ footer {
     text-decoration: none;
 }
 
-.ft__logo {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 10px auto;
-    height: 30px;
+
+/* RESPONSIVE */
+
+@media(max-width: 550px) {
+    footer {
+        display: flex;
+        width: 90%;
+        justify-content: center;
+    }
+    .social {
+        margin: auto;
+    }
+    .social img {
+        margin: auto;
+    }
+    .social a {
+        display: none;
+    }
 }
