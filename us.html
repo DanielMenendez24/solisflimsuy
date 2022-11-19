@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Solis Films Uy</title>
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="./assets/img/logo/s-films-white-favicon.png" type="image/x-icon">
+
+    <!-- LINKS -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/us.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+
+</head>
+
+<body id="us">
+
+    <!-- HEADER -->
+    <header>
+        <img src="./assets/img/logo/solis-flims-white.png" alt="Solis Films Uruguay">
+        <input type="checkbox" id="check">
+        <label for="check" class="show_menu">&#8801</label>
+        <nav class="menu">
+            <a href="index.html">Portfolio</a>
+            <a href="#us">Nosotros</a>
+            <a href="#contact">Contacto</a>
+            <label for="check" class="hide_menu">&#215</label>
+        </nav>
+    </header>
+
+    <h1>Somos una productora de contenido de marca (branded content) para redes sociales</h1>
+
+    <!-- Us -->
+    <section class="us">
+
+        <section class="team">
+
+            <div class="team__contain">
+                <!-- Sebastian -->
+                <img src="./assets/img/team/sebastian.png" alt="">
+                <h2>Sebastian</h2>
+                <h3>DIRECTOR & REALIZADOR</h3>
+                <p>Lic. en Comunicación Audiovisual con más de 5 años de experiencia en el mercado audiovisual publicitario nacional e internacional. Con la versatilidad y la narrativa como abanderadas.
+                </p>
+            </div>
+
+            <div class="team__contain">
+                <!-- Cecilia -->
+                <img src="./assets/img/team/cecilia.png" alt="">
+                <h2>Cecilia</h2>
+                <h3>PRODUCTORA & DIRECTORA</h3>
+                <p>Lic. en Comunicación Audiovisual. Con la creatividad y la calidad como principio, busca dar un mensaje y sensibilizar en cada pieza. Es productora pero le gusta explorar diferentes áreas del rubro audiovisual.</p>
+            </div>
+
+            <div class="team__contain">
+                <!-- Guido -->
+                <img src="./assets/img/team/guido.png" alt="">
+                <h2>Guido</h2>
+                <h3>AC & DRON FOTOGRAFO</h3>
+                <p>Fotógrafo y creador audiovisual de la ciudad de Castillos (Rocha), con 5 años de experiencia en el rubro. También se desempeña como piloto de drone y foquista. Un híbrido del equipo de Solis Films
+                </p>
+            </div>
+
+            <div class="team__contain">
+                <!-- Mathias -->
+                <img src="./assets/img/team/mathias.png" alt="">
+                <h2>Mathias</h2>
+                <h3>EDITOR & PRODUCTOR</h3>
+                <p>Fotógrafo y filmmaker de 31 años. Con más de 5 años de experiencia en fotografía y video como productor audiovisual. En el equipo se encuentra en post producción en los detalles importantes.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+
+            <div class="contact__form">
+
+                <form action="" id="form">
+                    <h3>Contáctanos!</h3>
+                    <!-- EMAIL -->
+                    <label for="Email">Email:</label>
+                    <input type="text" id="email" name="email">
+                    <!-- SUBJECT -->
+                    <label for="email">Asunto:</label>
+                    <input type="text" id="subject" name="subject">
+                    <!-- MSG -->
+                    <label for="msg">Mensaje:</label>
+                    <textarea type="text" id="msg" name="msg" rows="10"></textarea>
+                    <!-- BUTTON -->
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <!-- Hack -->
+                <a href="mailto:info@solisfilmsuruguay.com" id="hack" class="hack"></a>
+                <!-- Hack -->
+
+            </div>
+
+            <a href="https://goo.gl/maps/vW16T6ZmeFo7SPeP8" target="_blank">
+                <h3>Germán Barbato 1358, esq. 18 de julio</h3>
+            </a>
+
+        </section>
+
+    </section>
+
+    <footer>
+
+        <section class="social">
+            <img src="./assets/img/social/ig.svg" alt="Instagram">
+            <a href="https://instagram.com/solisfilms_/" target="_blank" title="@solisfilms_">https://instagram.com/solisfilms_/</a>
+        </section>
+
+        <section class="social">
+            <img src="./assets/img/social/mail.svg" alt="Gmail">
+            <a href="mailto:info@solisfilmsuruguay.com" target="_blank" title="Solis Films Uruguay">info@solisfilmsuruguay.com</a>
+        </section>
+
+    </footer>
+
+    <!-- Script Send Mail -->
+    <script>
+        const $form = document.querySelector('#form')
+        const $btnMailto = document.querySelector('#hack')
+
+        $form.addEventListener('submit', handleSubmit)
+
+        function handleSubmit(event) {
+            const form = new FormData(this)
+                // console.log(form.get('email'))
+                // console.log(form.get('subject'))
+                // console.log(form.get('msg'))
+            $btnMailto.setAttribute('href', `mailto:info@solisfilmsuruguay.com?subject=${form.get('subject')} || Email: ${form.get('email')}&body=${form.get('msg')}`)
+            $btnMailto.click()
+        }
+    </script>
+
+    <!-- Scroll Smooth -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // Add smooth scrolling to all links
+            $("a").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top,
+                    }, 400, function() {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+
+                } // End if
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

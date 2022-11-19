@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Solis Films Uy</title>
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="./assets/img/logo/s-films-white-favicon.png" type="image/x-icon">
+
+    <!-- LINKS -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/slide.css">
+    <link rel="stylesheet" href="./assets/css/mediaquery.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="./assets/img/logo/solis-flims-white.png" alt="Solis Films Uruguay">
+        <input type="checkbox" id="check">
+        <label for="check" class="show_menu">&#8801</label>
+        <nav class="menu">
+            <a href="#">Portfolio</a>
+            <a href="us.html">Nosotros</a>
+            <a href="us.html#contact">Contacto</a>
+            <label for="check" class="hide_menu">&#215</label>
+        </nav>
+    </header>
+
+    <!-- SLIDER -->
+
+    <section class="cd-slider">
+        <ul>
+            <li>
+                <a href="https://player.vimeo.com/video/649620599?h=4d1d881d3b" target="_blank">
+                    <div class="content" style="background-image:url(./assets/img/miniaturas/con-texto/text-visitors.jpeg); background-size: cover;">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://player.vimeo.com/video/751750034?h=80cb0614ea" target="_blank">
+                    <div class="content" style="background-image:url(./assets/img/miniaturas/con-texto/text-thecity.jpeg); background-size: cover;">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://player.vimeo.com/video/458971621?h=ef32e3f4ff" target="_blank">
+                    <div class="content" style="background-image:url(./assets/img/miniaturas/con-texto/text-panaderia-solis.jpeg); background-size: cover;">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://player.vimeo.com/video/334529960?h=1f36c21145" target="_blank">
+                    <div class="content" style="background-image:url(./assets/img/miniaturas/con-texto/text-chircal.jpeg); background-size: cover;">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://player.vimeo.com/video/758139165?h=90753a299f" target="_blank">
+                    <div class="content" style="background-image:url(./assets/img/miniaturas/con-texto/text-mi-abuela.jpeg); background-size: cover;">
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <nav>
+            <div>
+                <a class="prev" href="#"></a>
+            </div>
+            <div>
+                <a class="next" href="#"></a>
+            </div>
+        </nav>
+    </section>
+
+    <script>
+        (function() {
+
+            var autoUpdate = false,
+                timeTrans = 4000;
+
+            var cdSlider = document.querySelector('.cd-slider'),
+                item = cdSlider.querySelectorAll("li"),
+                nav = cdSlider.querySelector("nav");
+
+            item[0].className = "current_slide";
+
+            for (var i = 0, len = item.length; i < len; i++) {
+                var color = item[i].getAttribute("data-color");
+                item[i].style.backgroundColor = color;
+            }
+
+            // Detect IE
+            // hide ripple effect on IE9
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE");
+            if (msie > 0) {
+                var version = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+                if (version === 9) {
+                    cdSlider.className = "cd-slider ie9";
+                }
+            }
+
+            if (item.length <= 1) {
+                nav.style.display = "none";
+            }
+
+            function prevSlide() {
+                var currentSlide = cdSlider.querySelector("li.current_slide"),
+                    prevElement = currentSlide.previousElementSibling,
+                    prevSlide = (prevElement !== null) ? prevElement : item[item.length - 1],
+                    prevColor = prevSlide.getAttribute("data-color"),
+                    el = document.createElement('span');
+
+                currentSlide.className = "";
+                prevSlide.className = "current_slide";
+
+                nav.children[0].appendChild(el);
+
+                var size = (cdSlider.clientWidth >= cdSlider.clientHeight) ? cdSlider.clientWidth * 2 : cdSlider.clientHeight * 2,
+                    ripple = nav.children[0].querySelector("span");
+
+                ripple.style.height = size + 'px';
+                ripple.style.width = size + 'px';
+                ripple.style.backgroundColor = prevColor;
+
+                ripple.addEventListener("webkitTransitionEnd", function() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+
+                ripple.addEventListener("transitionend", function() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+
+            }
+
+            function nextSlide() {
+                var currentSlide = cdSlider.querySelector("li.current_slide"),
+                    nextElement = currentSlide.nextElementSibling,
+                    nextSlide = (nextElement !== null) ? nextElement : item[0],
+                    nextColor = nextSlide.getAttribute("data-color"),
+                    el = document.createElement('span');
+
+                currentSlide.className = "";
+                nextSlide.className = "current_slide";
+
+                nav.children[1].appendChild(el);
+
+                var size = (cdSlider.clientWidth >= cdSlider.clientHeight) ? cdSlider.clientWidth * 2 : cdSlider.clientHeight * 2,
+                    ripple = nav.children[1].querySelector("span");
+
+                ripple.style.height = size + 'px';
+                ripple.style.width = size + 'px';
+                ripple.style.backgroundColor = nextColor;
+
+                ripple.addEventListener("webkitTransitionEnd", function() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+
+                ripple.addEventListener("transitionend", function() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+
+            }
+
+            updateNavColor();
+
+            function updateNavColor() {
+                var currentSlide = cdSlider.querySelector("li.current_slide");
+
+                var nextColor = (currentSlide.nextElementSibling !== null) ? currentSlide.nextElementSibling.getAttribute("data-color") : item[0].getAttribute("data-color");
+                var prevColor = (currentSlide.previousElementSibling !== null) ? currentSlide.previousElementSibling.getAttribute("data-color") : item[item.length - 1].getAttribute("data-color");
+
+                if (item.length > 2) {
+                    nav.querySelector(".prev").style.backgroundColor = prevColor;
+                    nav.querySelector(".next").style.backgroundColor = nextColor;
+                }
+            }
+
+            nav.querySelector(".next").addEventListener('click', function(event) {
+                event.preventDefault();
+                nextSlide();
+                updateNavColor();
+            });
+
+            nav.querySelector(".prev").addEventListener("click", function(event) {
+                event.preventDefault();
+                prevSlide();
+                updateNavColor();
+            });
+
+            //autoUpdate
+            setInterval(function() {
+                if (autoUpdate) {
+                    nextSlide();
+                    updateNavColor();
+                };
+            }, timeTrans);
+
+        })();
+    </script>
+
+</body>
+
+</html>
