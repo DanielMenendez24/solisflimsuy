@@ -40,8 +40,28 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     line-height: 1;
+    color: #fff;
     text-transform: uppercase;
     margin: 0;
+}
+
+.play {
+    display: flex;
+    position: absolute;
+    margin: auto;
+    padding: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 10rem;
+    border-radius: 100%;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .75);
+    transition: box-shadow .3s;
+}
+
+.play:hover {
+    box-shadow: 0 0 0 1rem rgba(255, 255, 255, .75);
 }
 
 @media (max-width: 550px) {

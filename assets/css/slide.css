@@ -193,7 +193,7 @@ nav div:last-of-type {
 
 .prev:hover,
 .next:hover {
-    box-shadow: 0 0 0 1rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 .5rem rgba(255, 255, 255, .75);
 }
 
 nav>div>span {
