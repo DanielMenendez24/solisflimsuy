@@ -1,21 +1,6 @@
-.visitors {
-    background-image: url(../img/miniaturas/sin-texto/visitors.jpeg);
+.visitors, .thecity, .panaderia, .chircal {
     background-size: cover;
-}
-
-.thecity {
-    background-image: url(../img/miniaturas/sin-texto/the-city.jpeg);
-    background-size: cover;
-}
-
-.panaderia {
-    background-image: url(../img/miniaturas/sin-texto/panaderia-solis.jpeg);
-    background-size: cover;
-}
-
-.chircal {
-    background-image: url(../img/miniaturas/sin-texto/chircal.jpeg);
-    background-size: cover;
+    background-position: center;
 }
 
 .text {

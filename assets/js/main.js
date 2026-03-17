@@ -1,7 +1,33 @@
+// Scroll Reveal Animation
+const revealElements = () => {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const elementsToReveal = document.querySelectorAll('.team__contain, .contact__form, h1');
+    elementsToReveal.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     initSlider();
     initForm();
     initModal();
+    if (document.body.id === 'us') {
+        revealElements();
+    }
 });
 
 function initModal() {
@@ -182,7 +208,23 @@ function initForm() {
         const email = formData.get('email');
         const msg = formData.get('msg');
 
-        btnMailto.setAttribute('href', `mailto:info@solisfilmsuruguay.com?subject=${subject} || Email: ${email}&body=${msg}`);
+        if (!email || !msg) {
+            alert('Por favor, completa los campos requeridos.');
+            return;
+        }
+
+        btnMailto.setAttribute('href', `mailto:info@solisfilmsuruguay.com?subject=${encodeURIComponent(subject)} || Email: ${encodeURIComponent(email)}&body=${encodeURIComponent(msg)}`);
         btnMailto.click();
     });
 }
+
+// Add Escape key support for modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById("video-modal");
+        if (modal && modal.style.display === "block") {
+            const closeBtn = document.querySelector(".close-modal");
+            if (closeBtn) closeBtn.click();
+        }
+    }
+});
